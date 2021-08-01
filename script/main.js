@@ -5,7 +5,7 @@ worldButton.onclick = function(){
 }
 
 function getWorld(){
-    var requestURL = 'https://luke-tsung.github.io/data/world.json';
+    var requestURL = 'data/world.json';
             var request = new XMLHttpRequest();
             request.open('GET', requestURL);
             request.responseType = 'json';
