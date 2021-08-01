@@ -1,23 +1,13 @@
-var myButton = document.querySelector('button');
-var myHeading = document.querySelector('h1');
+var worldButton = document.querySelector('button');
 
-if(!localStorage.getItem('name')){
-    setUserName();
-} else {
-    let storedName = localStorage.getItem('name');
-    myHeading.innerHTML = 'Welcome my friend, ' + storedName;
+worldButton.onclick = function(){
+    getWorld();
 }
 
-myButton.onclick = function(){
-    setUserName();
-}
-
-function setUserName(){
-    let myName = prompt('Please enter your name.');
-    if(!myName || myName === null){
-        setUserName();
-    }else {
-    localStorage.setItem('name',myName);
-    myHeading.innerHTML = 'Welcome our new friend, ' + myName;
-    }
+function getWorld(){
+    var requestURL = 'https://luke-tsung.github.io/data/world.json';
+            var request = new XMLHttpRequest();
+            request.open('GET', requestURL);
+            request.responseType = 'json';
+            request.send();
 }
